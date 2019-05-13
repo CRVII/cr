@@ -1,0 +1,21 @@
+import sys
+from PyQt5.QtWidgets import QApplication,QMainWindow,QDialog
+from test1 import *
+from test2 import *
+
+if _name_=='_main_':
+    app=QApplication(sys.argv)
+
+    main=QMainWindow()
+    main_ui=Ui_MainWindow()
+    main_ui.setupUi(main)
+
+    child=QDialog()
+    child_ui=Ui_Dialog()
+    child_ui.setupUi(child)
+
+    btn=main_ui.pushButton
+    btn.click.connect(child.show)
+
+    main.show()
+    sys.exit(app.exec())
